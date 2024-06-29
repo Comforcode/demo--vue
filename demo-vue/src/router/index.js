@@ -8,22 +8,13 @@
  */
 import { createWebHistory, createRouter } from 'vue-router';
 
-import Base from '@/views/base.vue';
 import List from '@/views/list.vue';
-import Computed from '@/views/computeds.vue';
-import Hello from '@/views/HelloWorld.vue';
-import Form from '@/views/formModel.vue';
+import Hello from '@/views/Welcome.vue';
 // import Life from '@/views/life.vue';
 
 const routes = [
-  { path: '/', redirect: '/base' },
-  { path: '/base', component: Base },
   { path: '/list', component: List },
-  { path: '/computed', component: Computed },
-  { path: '/list', component: List },
-  { path: '/hello', component: Hello },
-  { path: '/form', component: Form },
-  { path: '/life', component: () => import('@/views/life.vue') },
+  { path: '/', component: Hello },
   {
     path: '/user/:id',
     name: 'user',
@@ -31,16 +22,6 @@ const routes = [
       title: '用户详情'
     },
     component: () => import('@/views/user.vue')
-  },
-  {
-    path: '/fa',
-    component: () => import('@/views/father.vue'),
-    children: [
-      {
-        path: 'son',
-        component: () => import('@/views/son.vue')
-      }
-    ]
   }
 ];
 
